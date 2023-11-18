@@ -9,8 +9,16 @@
 <html>
   <body>
     <div th:replace="header :: header"></div>
-    <h1>Something went wrong!</h1>
-    <h2>Our Engineers are on it</h2>
-    <a href="/">Go Home</a>
+    <div class="d-flex align-items-center justify-content-center vh-100">
+      <div class="text-center">
+        <h1 class="display-1 fw-bold">404</h1>
+        <h1>Something went wrong!</h1>
+        <p class="lead mt-n2">
+          <span class="text-danger">Opps!</span>Page not found!
+        </p>
+        <p class="lead">the page you looking for dosen't exist</p>
+        <a href="/" class="btn btn-primary mb-4">Back to Home</a>
+      </div>
+    </div>
   </body>
 </html>

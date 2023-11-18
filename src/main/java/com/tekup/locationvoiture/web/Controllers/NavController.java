@@ -21,4 +21,8 @@ public class NavController implements ErrorController {
         //do something like logging
         return "error";
     }
+      @GetMapping("/login")
+    public String LoginPage(){
+        return"login";
+    }
 }
