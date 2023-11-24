@@ -1,4 +1,4 @@
-package com.tekup.locationvoiture.web.Models.Requests;
+package com.tekup.locationvoiture.web.models.Requests;
 
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name = "cars")
 public class CarForm {
     private String name;
     private double price;

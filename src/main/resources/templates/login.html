@@ -8,73 +8,43 @@
   </head>
   <body>
     <section class="vh-100" style="background-color: #508bfc">
+      <div class=" col-12 md-5 d-flex justify-content-center">
+        <img th:src="@{/images/logo3.png}" style="width: 200px" />
+      </div>
+
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-            <div class="card shadow-2-strong" style="border-radius: 1rem">
-              <div class="card-body p-5">
-                <h3 class="mb-5">Sign in</h3>
-                <!-- <div class="form-outline mb-4">
+          <div class="col-12 col-md-5 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 3rem">
+              <div class="card-body p-4">
+                <h1 class="md-1 text-center">Sign in</h1>
+                <form action="">
+                  <label for="email" class="form-label mt-4"></label>
                   <input
                     type="email"
-                    id="typeEmailX-2"
-                    class="form-control form-control-lg"
+                    class="form-control"
+                    placeholder="Enter email"
                   />
-                  <label
-                    class="form-label"
-                    for="typeEmailX-2"
-                    name="email"
-                  ></label>
-                </div>
-                <div class="form-outline mb-4">
+                  <label for="password" class="form-label mt-4"></label>
                   <input
                     type="password"
-                    id="typePasswordX-2"
-                    class="form-control form-control-lg"
+                    class="form-control"
+                    placeholder="Password"
+                    autocomplete="off"
                   />
-                  <label
-                    class="form-label"
-                    for="typePasswordX-2"
-                    name="password"
-                  ></label>
-                </div>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">
-                  Login
-                </button> -->
-                <form action="">
-                  <div class="form-group">
-                    <label
-                      for="exampleInputEmail1"
-                      class="form-label mt-4"
-                    ></label>
+                  <p></p>
+                  <div class="text-center">
+                    <!-- <button
+                      class="btn btn-primary btn-lg btn-block"
+                      type="submit"
+                    >
+                      Login
+                    </button> -->
                     <input
-                      type="email"
-                      class="form-control"
-                      id="exampleInputEmail1"
-                      aria-describedby="emailHelp"
-                      placeholder="Enter email"
+                      class="btn btn-primary"
+                      type="submit"
+                      value="login"
                     />
-                  </div>
-                  <div class="form-group">
-                    <label
-                      for="exampleInputPassword1"
-                      class="form-label mt-4"
-                    ></label>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="exampleInputPassword1"
-                      placeholder="Password"
-                      autocomplete="off"
-                    />
-                    <div class="text-center">
-                      <button
-                        class="btn btn-primary btn-lg btn-block"
-                        type="submit"
-                      >
-                        Login
-                      </button>
-                    </div>
                   </div>
                 </form>
               </div>

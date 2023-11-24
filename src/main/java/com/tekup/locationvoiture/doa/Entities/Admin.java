@@ -1,4 +1,4 @@
-package com.tekup.locationvoiture.web.Models;
+package com.tekup.locationvoiture.doa.Entities;
 
 public class Admin {
     private Long id;
