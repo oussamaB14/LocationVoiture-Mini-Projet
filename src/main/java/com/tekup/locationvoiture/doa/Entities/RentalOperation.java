@@ -1,5 +1,6 @@
 package com.tekup.locationvoiture.doa.Entities;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,6 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
 @Table(name = "rent_operations")
 public class RentalOperation {
     @Id
@@ -23,5 +25,5 @@ public class RentalOperation {
     private String warrantyType;
     private String paymentType;
     private String rentalFee;
-    private Car car;
+    // private Car car;
 }

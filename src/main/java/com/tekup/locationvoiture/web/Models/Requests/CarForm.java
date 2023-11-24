@@ -1,6 +1,4 @@
 package com.tekup.locationvoiture.web.models.Requests;
-
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

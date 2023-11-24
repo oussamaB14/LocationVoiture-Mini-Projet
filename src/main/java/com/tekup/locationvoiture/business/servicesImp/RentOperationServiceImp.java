@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tekup.locationvoiture.business.services.IRentOperationService;
 import com.tekup.locationvoiture.doa.Entities.RentalOperation;
 import com.tekup.locationvoiture.doa.Repository.RentalOperationRepository;
-
+@Service
 public class RentOperationServiceImp implements IRentOperationService {
     @Autowired
     RentalOperationRepository rentRepository;

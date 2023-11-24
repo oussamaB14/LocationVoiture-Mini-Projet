@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tekup.locationvoiture.business.services.IClientservice;
 import com.tekup.locationvoiture.doa.Entities.Client;
 import com.tekup.locationvoiture.doa.Repository.ClientRepository;
-
+@Service
 public class ClientServiceImp implements IClientservice {
     @Autowired
     ClientRepository clientRepository;
