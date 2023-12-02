@@ -38,7 +38,7 @@ public class ClientServiceImp implements IClientservice {
     }
 
     @Override
-    public List<Client> getClientByEmail(String email) {
+    public List<Client> getAllClients() {
         return clientRepository.findAll();
         //throw new UnsupportedOperationException("Unimplemented method 'getClientByEmail'");
     }

@@ -9,6 +9,6 @@ public interface IClientservice {
     public Client addClient(Client c);
     public Client updateClient(Client c);
     public void deleteClient(Long id);
-    public List<Client> getClientByEmail(String email);
+    public List<Client> getAllClients();
 
 }
