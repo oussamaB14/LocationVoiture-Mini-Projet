@@ -1,0 +1,20 @@
+body {
+  background: #325d88;
+  background: linear-gradient(to right, #325d88, #178ede);
+}
+
+.card-img-left{
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center ;
+  /*url("/src/main/resources/static/images/background-img.png");*/
+  background-image: url("/src/main/resources/static/images/background-img.png");
+  background-size: cover;
+}
+
+.btn-login {
+  background: linear-gradient(to right, #325d88, #325d88);
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}

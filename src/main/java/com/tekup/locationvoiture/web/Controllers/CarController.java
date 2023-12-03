@@ -19,17 +19,17 @@ import com.tekup.locationvoiture.doa.Entities.Car;
 public class CarController {
     @Autowired
     ICarService carService;
-    @RequestMapping("/{id}")
-    public ResponseEntity<Object> getCarsById(@PathVariable("id") Long id)
-    {
-        Optional<Car> car=carService.getCar(id);
-        if(car.isPresent()){
-            return new ResponseEntity<>(car.get(),HttpStatus.OK);
-        }
-        return new ResponseEntity<>("failed: car not found",HttpStatus.NOT_FOUND);
-    }
-    @RequestMapping("/list")
-    public String carsPage( Model model){
+    // @RequestMapping("/{id}")
+    // public ResponseEntity<Object> getCarsById(@PathVariable("id") Long id)
+    // {
+    //     Optional<Car> car=carService.getCar(id);
+    //     if(car.isPresent()){
+    //         return new ResponseEntity<>(car.get(),HttpStatus.OK);
+    //     }
+    //     return new ResponseEntity<>("failed: car not found",HttpStatus.NOT_FOUND);
+    // }
+    @RequestMapping("/carslist")
+    public String CarsList( Model model){
         List<Car> cars = carService.getAllCars(); 
         model.addAttribute("cars", cars);
         return"carslist";

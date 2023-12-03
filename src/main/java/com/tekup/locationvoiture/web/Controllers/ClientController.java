@@ -20,6 +20,6 @@ public class ClientController {
          List<Client> clients = clientService.getAllClients();
         model.addAttribute("clients", clients);
 
-        return "/clientslist";
+        return "clientslist";
     }
 }

@@ -34,9 +34,9 @@
             <td th:text="${car.year}"></td>
             <td th:text="${car.isAvailable ? 'Yes' : 'No'}"></td>
             <td th:text="${car.description}"></td>
-            <td><a class="btn btn-secondary btn-sm" th:href="@{/mylist/{id}(id=${b.id})}">Add To Mybook</a> 
-              <a style="color:blue" th:href="@{/editBook/{id}(id=${b.id})}"><i class="fa-solid fa-pen-to-square ms-4"></i></a>
-              <a style="color:red" th:href="@{/deleteBook/{id}(id=${b.id})}"><i class="fa-solid fa-trash ms-4"></i></a>
+            <td><a class="btn btn-secondary btn-sm" >Add To Mybook</a> 
+              <a style="color:blue" ><i class="fa-solid fa-pen-to-square ms-4"></i></a>
+              <a style="color:red" ><i class="fa-solid fa-trash ms-4"></i></a>
               </td> 
         </tr>
         </tbody>

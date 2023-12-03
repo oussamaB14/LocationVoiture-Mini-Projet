@@ -3,55 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css" />
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" type="text/css" />
     <title>Login</title>
+    <style>
+    
+    </style>
   </head>
   <body>
-    <section class="vh-100" style="background-color: #508bfc">
-      <div class=" col-12 md-5 d-flex justify-content-center">
-        <img th:src="@{/images/logo3.png}" style="width: 200px" />
-      </div>
-
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-12 col-md-5 col-lg-6 col-xl-5">
-            <div class="card shadow-2-strong" style="border-radius: 3rem">
-              <div class="card-body p-4">
-                <h1 class="md-1 text-center">Sign in</h1>
-                <form action="">
-                  <label for="email" class="form-label mt-4"></label>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div
+            class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden"
+          >
+            <div class="card-img-left d-none d-md-flex">
+              <img width="100%" th:src="@{/images/background-img.png}" />
+            </div>
+            <div class="card-body p-4 p-sm-5">
+              <h1 class="card-title text-center mb-5 fw-bold fs-2">
+                Welcome Back!
+              </h1>
+              <form>
+                <div class="form-floating mb-3">
                   <input
                     type="email"
                     class="form-control"
-                    placeholder="Enter email"
+                    id="floatingInputEmail"
+                    placeholder="name@example.com"
                   />
-                  <label for="password" class="form-label mt-4"></label>
+                  <label for="floatingInputEmail">Email address</label>
+                </div>
+
+                <hr />
+
+                <div class="form-floating mb-3">
                   <input
                     type="password"
                     class="form-control"
+                    id="floatingPassword"
                     placeholder="Password"
-                    autocomplete="off"
                   />
-                  <p></p>
-                  <div class="text-center">
-                    <!-- <button
-                      class="btn btn-primary btn-lg btn-block"
-                      type="submit"
-                    >
-                      Login
-                    </button> -->
-                    <input
-                      class="btn btn-primary"
-                      type="submit"
-                      value="login"
-                    />
-                  </div>
-                </form>
-              </div>
+                  <label for="floatingPassword">Password</label>
+                </div>
+
+                <div class="d-grid mb-2">
+                  <button
+                    class="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
+                    type="submit"
+                  >
+                    Login
+                  </button>
+                </div>
+
+                <hr class="my-4" />
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>
