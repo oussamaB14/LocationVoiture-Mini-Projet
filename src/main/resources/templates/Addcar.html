@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" type="text/css" />
+    <title>Add car</title>
+  </head>
+  <body>
+    <div th:replace="~{fragments/navbar}"></div>
+    <div class="container my-5 p-5">
+      <h4 class="text-center">New Car Register</h4>
+      <form class="col-md-4 offset-md-4" th:action="@{/save}" method="post">
+        <div class="mb-3 row g-2">
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Name</label>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Mark</label>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 row g-2">
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Model</label>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input
+                type="number"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Year</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row g-2">
+          <div class="col-md">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="floatingSelectGrid"
+                aria-label="Floating label select example"
+              >
+                <!-- <option selected>Open this select menu</option> -->
+                <option value="1">Petrol</option>
+                <option value="2">Diesel</option>
+              </select>
+              <label for="floatingSelectGrid">Fuel</label>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="floatingSelectGrid"
+                aria-label="Floating label select example"
+              >
+                <!-- <option selected>Manul</option> -->
+                <option value="1">Manual</option>
+                <option value="2">Automatic</option>
+              </select>
+              <label for="floatingSelectGrid">Transmission</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Description</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <center>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </center>
+      </form>
+    </div>
+  </body>
+</html>

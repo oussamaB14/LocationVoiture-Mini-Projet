@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" type="text/css" />
+    <title>Pricing</title>
+  </head>
+  <body>
+    <div th:replace="~{fragments/navbar}"></div>
+    <section class="pricing py-5">
+      <div class="container">
+        <h1 class="text-center">Rental Car Costs</h1>
+        <div class="row">
+          <!-- Free Tier -->
+          <div class="col-lg-4">
+            <div class="card mb-5 mb-lg-0">
+              <div class="card-body">
+                <h4 class="card-title text-muted text-uppercase text-center">
+                  Daily
+                </h4>
+                <h6 class="card-price text-center">
+                  80TD<span class="period"></span>
+                </h6>
+                <hr />
+                <ul class="fa-ul">
+                  <li>
+                    <span class="fa-li"><i class="fas fa-check"></i></span
+                    >Single driver
+                  </li>
+                  <li>
+                    <span class="fa-li"><i class="fas fa-check"></i></span>Free
+                    cancellation
+                  </li>
+                  <li>
+                    <span class="fa-li"><i class="fas fa-check"></i></span>100
+                    miles
+                  </li>
+                  <!-- <li>
+                    <span class="fa-li"><i class="fas fa-check"></i></span
+                    >Community Access
+                  </li> -->
+                  <li class="text-muted">
+                    <span class="fa-li"><i class="fas fa-times"></i></span
+                    >Unlimited mileage
+                  </li>
+                  <li class="text-muted">
+                    <span class="fa-li"><i class="fas fa-times"></i></span>GPS
+                    navigation system
+                  </li>
+                  <li class="text-muted">
+                    <span class="fa-li"><i class="fas fa-times"></i></span>Additional driver
+                  </li>
+                  <!-- <li class="text-muted">
+                    <span class="fa-li"><i class="fas fa-times"></i></span
+                    >Monthly Status Reports
+                  </li> -->
+                </ul>
+                <div class="d-grid">
+                  <a href="#" class="btn btn-primary text-uppercase">Check</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Plus Tier -->
+          <div class="col-lg-4">
+            <div class="card mb-5 mb-lg-0">
+              <div class="card-body">
+                <h5 class="card-title text-muted text-uppercase text-center">
+                  Weekly
+                </h5>
+                <h6 class="card-price text-center">
+                  75TD<span class="period">/day</span>
+                </h6>
+                <hr />
+                <ul class="fa-ul">
+                  <li>
+                    <span class="fa-li"><i class="fas fa-check"></i></span
+                    ><strong> business travelers </strong>
+                  </li>
+                  <li>
+                    <span class="fa-li"><i class="fas fa-check"></i></span>Free
+                    cancellation
+                  </li>
+                  <li>
+                    <span class="fa-li"><i class="fas fa-check"></i></span
+                    >Unlimited mileage
+                  </li>
+                  <li>
+                    <span class="fa-li"><i class="fas fa-check"></i></span>GPS
+                    navigation system
+                  </li>
+
+                  <li class="text-muted">
+                    <span class="fa-li"><i class="fas fa-times"></i></span
+                    >Additional driver
+                  </li>
+                </ul>
+                <div class="d-grid">
+                  <a href="#" class="btn btn-primary text-uppercase">Check</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Pro Tier -->
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-muted text-uppercase text-center">
+                  Monthly
+                </h5>
+                <h6 class="card-price text-center">
+                  70TD<span class="period">/day</span>
+                </h6>
+                <hr />
+                <ul class="fa-ul">
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Family pack</strong>
+                    </li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Free cancellation</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited mileage</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span>GPS
+                        navigation system</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Additional driver</li>
+                    <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited</strong> Free
+                      Subdomains</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly Status Reports</li>
+                  </ul> -->
+                <div class="d-grid">
+                  <a href="#" class="btn btn-primary text-uppercase">Check</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div th:replace="~{fragments/footer}"></div>
+  </body>
+</html>
