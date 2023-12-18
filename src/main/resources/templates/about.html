@@ -9,83 +9,67 @@
   <body>
     <div th:replace="~{fragments/navbar}"></div>
      <!-- Header-->
-     <header class="py-5">
-      <div class="container px-5">
-          <div class="row justify-content-center">
-              <div class="col-lg-8 col-xxl-6">
-                  <div class="text-center my-5">
-                      <h1 class="fw-bolder mb-3">Our mission is to make building websites easier for everyone.</h1>
-                      <p class="lead fw-normal text-muted mb-4">Start Bootstrap was built on the idea that quality, functional website templates and themes should be available to everyone. Use our open source, free products, or support us by purchasing one of our premium products or services.</p>
-                      <a class="btn btn-primary btn-lg" href="#scroll-target">Read our story</a>
-                  </div>
+  <!-- About Section-->
+  <section class="py-5" id="about">
+    <div class="container px-5">
+      <div class="row justify-content-center">
+          <div class="col-lg-8 col-xxl-6">
+              <div class="text-center my-5">
+                  <h1 class="fw-bolder mb-3">Our mession is to make traveling more safer for everyone.</h1>
+                  <p class="lead fw-normal text-muted mb-4">Our commitment goes beyond providing vehicles for you, it's about shaping experiences that elevate your journeys.</p>
+                  <a class="btn btn-primary btn-lg" href="#scroll-target">Read our story</a>
               </div>
           </div>
       </div>
-  </header>
-  <!-- About section one-->
-  <section class="py-5 bg-light" id="scroll-target">
-      <div class="container px-5 my-5">
-          <div class="row gx-5 align-items-center">
-              <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
-              <div class="col-lg-6">
-                  <h2 class="fw-bolder">Our founding</h2>
-                  <p class="lead fw-normal text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est, ut esse a labore aliquam beatae expedita. Blanditiis impedit numquam libero molestiae et fugit cupiditate, quibusdam expedita, maiores eaque quisquam.</p>
+  </div>
+<!-- About section one-->
+<section class="py-5 bg-light" id="scroll-target">
+  <div class="container px-5 my-5">
+      <div class="row gx-5 align-items-center">
+          <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0"th:src="@{/images/driver.jpg}" alt="..." /></div>
+          <div class="col-lg-6">
+              <h2 class="fw-bolder">Safety and Quality</h2>
+              <p class="lead fw-normal text-muted mb-0">Our mission is to prioritize the safety and satisfaction of our customers. We aim to offer a fleet of well-maintained vehicles.</p>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- About section two-->
+<section class="py-5">
+  <div class="container px-5 my-5">
+      <div class="row gx-5 align-items-center">
+          <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" th:src="@{/images/carimg.jpg}" alt="..." /></div>
+          <div class="col-lg-6">
+              <h2 class="fw-bolder">Innovation  &amp; Sustainability</h2>
+              <p class="lead fw-normal text-muted mb-0">At Boufari Cars, we are on a mission to redefine the car rental industry through innovation and sustainability.</p>
+          </div>
+      </div>
+  </div>
+  <div class="justify-content-center">
+      <h2 class="fw-bolder text-center">Our Sponsors</h2>
+      <img class="card-img" th:src="@{/images/carlogos.png}" alt="">
+  </div>
+</section>
+<!-- Team members section-->
+<section class="py-5 bg-light">
+  <div class="container px-5 my-5">
+      <div class="text-center">
+          <h2 class="fw-bolder">Our team</h2>
+          <p class="lead fw-normal text-muted mb-5">Dedicated to quality and your success</p>
+      </div>
+      <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+          <div class="col mb-5 mb-5 mb-xl-0">
+              <div class="text-center">
+                  <img class="img-fluid rounded-circle mb-4 px-4" th:src="@{/images/myimg.jpg}" alt="..." />
+                  <h5 class="fw-bolder">Boufari Oussama</h5>
+                  <div class="fst-italic text-muted">Founder &amp; CEO</div>
               </div>
           </div>
       </div>
-  </section>
-  <!-- About section two-->
-  <section class="py-5">
-      <div class="container px-5 my-5">
-          <div class="row gx-5 align-items-center">
-              <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
-              <div class="col-lg-6">
-                  <h2 class="fw-bolder">Growth &amp; beyond</h2>
-                  <p class="lead fw-normal text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est, ut esse a labore aliquam beatae expedita. Blanditiis impedit numquam libero molestiae et fugit cupiditate, quibusdam expedita, maiores eaque quisquam.</p>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!-- Team members section-->
-  <section class="py-5 bg-light">
-      <div class="container px-5 my-5">
-          <div class="text-center">
-              <h2 class="fw-bolder">Our team</h2>
-              <p class="lead fw-normal text-muted mb-5">Dedicated to quality and your success</p>
-          </div>
-          <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
-              <div class="col mb-5 mb-5 mb-xl-0">
-                  <div class="text-center">
-                      <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                      <h5 class="fw-bolder">Ibbie Eckart</h5>
-                      <div class="fst-italic text-muted">Founder &amp; CEO</div>
-                  </div>
-              </div>
-              <div class="col mb-5 mb-5 mb-xl-0">
-                  <div class="text-center">
-                      <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                      <h5 class="fw-bolder">Arden Vasek</h5>
-                      <div class="fst-italic text-muted">CFO</div>
-                  </div>
-              </div>
-              <div class="col mb-5 mb-5 mb-sm-0">
-                  <div class="text-center">
-                      <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                      <h5 class="fw-bolder">Toribio Nerthus</h5>
-                      <div class="fst-italic text-muted">Operations Manager</div>
-                  </div>
-              </div>
-              <div class="col mb-5">
-                  <div class="text-center">
-                      <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                      <h5 class="fw-bolder">Malvina Cilla</h5>
-                      <div class="fst-italic text-muted">CTO</div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
+  </div>
+</section>
 </main>
+</section>
 <!-- Footer-->
 <div th:replace="~{fragments/footer}"></div>
 <!-- Bootstrap core JS-->
