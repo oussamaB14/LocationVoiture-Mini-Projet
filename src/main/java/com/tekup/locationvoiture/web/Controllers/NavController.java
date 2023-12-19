@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -45,7 +44,14 @@ public class NavController implements ErrorController {
     public String PricingPage() {
         return "Pricing";
     }
-    
+    @GetMapping("/singlecar")
+    public String SingleCar() {
+        return "single_car";
+    }
+    @GetMapping("/carcataloge")
+    public String CarCataloge() {
+        return "carscataloge";
+    }
     
     }
 
