@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tekup.locationvoiture.business.services.ICarService;
 import com.tekup.locationvoiture.doa.Entities.Car;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -36,7 +35,7 @@ public class CarController {
     public String CarsList( Model model){
         List<Car> cars = carService.getAllCars(); 
         model.addAttribute("cars", cars);
-        return"carslist";
+        return"carscataloge";
     }
     @GetMapping("/addcar")
     public String AddCar() {
