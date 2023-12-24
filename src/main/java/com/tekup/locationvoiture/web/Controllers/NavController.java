@@ -48,10 +48,10 @@ public class NavController implements ErrorController {
     public String SingleCar() {
         return "single_car";
     }
-    // @GetMapping("/carcataloge")
-    // public String CarCataloge() {
-    //     return "carscataloge";
-    // }
+    @GetMapping("/dashboard")
+    public String TakeMeTodashboard() {
+        return "/Admin/dashboard";
+    }
     
     }
 

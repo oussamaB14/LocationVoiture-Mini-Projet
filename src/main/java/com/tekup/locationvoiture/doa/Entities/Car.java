@@ -23,7 +23,10 @@ public class Car {
     private String name;
     private double price;
     private String brand;
-    private String model;
+    private String img;
+    private Double millage;
+    private FuelType fuelType;
+    private TransmissionType transmissionType;
     private int year;
     private boolean isAvailable = true;
     private String description;
