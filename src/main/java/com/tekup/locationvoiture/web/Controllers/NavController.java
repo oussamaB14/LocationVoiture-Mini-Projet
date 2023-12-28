@@ -52,6 +52,10 @@ public class NavController implements ErrorController {
     public String TakeMeTodashboard() {
         return "/Admin/dashboard";
     }
+     @GetMapping("/dashboard/carslist")
+    public String TakeMeTodashboardCarsList() {
+        return "/Admin/Clients";
+    }
     
     }
 
