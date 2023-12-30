@@ -1,6 +1,6 @@
 package com.tekup.locationvoiture.web.models.Requests;
 
-import com.tekup.locationvoiture.doa.Entities.Car;
+import com.tekup.locationvoiture.DAO.Entities.Car;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

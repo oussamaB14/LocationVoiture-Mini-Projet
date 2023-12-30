@@ -1,4 +1,4 @@
-package com.tekup.locationvoiture.doa.Entities;
+package com.tekup.locationvoiture.DAO.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

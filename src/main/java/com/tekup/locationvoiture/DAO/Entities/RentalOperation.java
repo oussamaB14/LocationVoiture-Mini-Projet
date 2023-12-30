@@ -1,9 +1,13 @@
-package com.tekup.locationvoiture.doa.Entities;
+package com.tekup.locationvoiture.DAO.Entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,8 +26,15 @@ public class RentalOperation {
     private Long id;
     private String startDate;
     private String endDate;
-    private String warrantyType;
-    private String paymentType;
-    private String rentalFee;
-    // private Car car;
+    @Enumerated(EnumType.STRING)
+    private WarrantyType warrantyType;
+    @Enumerated(EnumType.STRING)
+    private PaymentType paymentType;
+    private Double rentalFee;
+    @ManyToOne
+    @JoinColumn(name = "car_id")
+    private Car car;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 }

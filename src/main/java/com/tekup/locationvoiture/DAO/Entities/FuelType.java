@@ -1,4 +1,4 @@
-package com.tekup.locationvoiture.doa.Entities;
+package com.tekup.locationvoiture.DAO.Entities;
 
 public enum FuelType {
     GASOLINE,

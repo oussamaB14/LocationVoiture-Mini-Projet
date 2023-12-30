@@ -1,6 +1,9 @@
-package com.tekup.locationvoiture.doa.Entities;
+package com.tekup.locationvoiture.DAO.Entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +28,11 @@ public class Car {
     private String brand;
     private String img;
     private Double millage;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
     private FuelType fuelType;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
     private TransmissionType transmissionType;
     private int year;
     private boolean isAvailable = true;

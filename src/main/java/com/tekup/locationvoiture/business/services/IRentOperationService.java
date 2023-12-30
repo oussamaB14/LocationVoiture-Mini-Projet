@@ -1,11 +1,10 @@
 package com.tekup.locationvoiture.business.services;
 
 import java.util.Optional;
+
+import com.tekup.locationvoiture.DAO.Entities.RentalOperation;
+
 import java.util.List;
-
-
-
-import com.tekup.locationvoiture.doa.Entities.RentalOperation;
 
 public interface IRentOperationService {
     public Optional <RentalOperation> getRentOperation(Long id);
@@ -13,5 +12,6 @@ public interface IRentOperationService {
     public RentalOperation updateRentalOperation(RentalOperation r);
     public void deleteRentalOperation(Long id);
     public List<RentalOperation> getAllRentalOperations();
+    public RentalOperation gRentalOperationByCarId(Long id);
     //public List<RentalOperation> getAllRentalOperationsByUser(Long id);
 }

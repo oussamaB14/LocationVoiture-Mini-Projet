@@ -1,6 +1,6 @@
 package com.tekup.locationvoiture.web.models.Requests;
-import com.tekup.locationvoiture.doa.Entities.FuelType;
-import com.tekup.locationvoiture.doa.Entities.TransmissionType;
+import com.tekup.locationvoiture.DAO.Entities.FuelType;
+import com.tekup.locationvoiture.DAO.Entities.TransmissionType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

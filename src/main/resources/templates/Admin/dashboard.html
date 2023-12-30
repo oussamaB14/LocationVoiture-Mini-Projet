@@ -87,99 +87,19 @@
                               </tr>
                           </tfoot>
                           <tbody>
-                              <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
+                              <tr th:each="car : ${cars}">
+                                <th th:text="${car.id}"></th>
+                                <th th:text="${car.name}"></th>
+                                <th th:text="${car.brand}"></th>
+                                <th th:text="${car.price}"></th>
+                                <th th:text="${car.year}"></th>
                                 <th>Millage</th>
                                 <th>Fuel type</th>
                                 <th>Transmission Type</th>
-                                <th>Description</th>
-                                <th>Available</th>
+                                <th th:text="${car.description}"></th>
+                                <th th:text="${car.isAvailable ? 'Yes' : 'No'}"></th>
                                 <th>Image</th>
                               </tr>
-                              <!-- <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                            </tr>
-                            <tr>
-                              <td>Donna Snider</td>
-                              <td>Customer Support</td>
-                              <td>New York</td>
-                              <td>27</td>
-                              <td>2011/01/25</td>
-                              <td>$112,000</td>
-                          </tr>
-                          <tr>
-                            <td>Donna Snider</td>
-                            <td>Customer Support</td>
-                            <td>New York</td>
-                            <td>27</td>
-                            <td>2011/01/25</td>
-                            <td>$112,000</td>
-                        </tr>
-                        <tr>
-                          <td>Donna Snider</td>
-                          <td>Customer Support</td>
-                          <td>New York</td>
-                          <td>27</td>
-                          <td>2011/01/25</td>
-                          <td>$112,000</td>
-                      </tr>
-                      <tr>
-                        <td>Donna Snider</td>
-                        <td>Customer Support</td>
-                        <td>New York</td>
-                        <td>27</td>
-                        <td>2011/01/25</td>
-                        <td>$112,000</td>
-                    </tr>
-                    <tr>
-                      <td>Donna Snider</td>
-                      <td>Customer Support</td>
-                      <td>New York</td>
-                      <td>27</td>
-                      <td>2011/01/25</td>
-                      <td>$112,000</td>
-                  </tr>
-                  <tr>
-                    <td>Donna Snider</td>
-                    <td>Customer Support</td>
-                    <td>New York</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                </tr>
-                <tr>
-                  <td>Donna Snider</td>
-                  <td>Customer Support</td>
-                  <td>New York</td>
-                  <td>27</td>
-                  <td>2011/01/25</td>
-                  <td>$112,000</td>
-              </tr>
-              <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>21</td>
-                <td>2011/01/25</td>
-                <td>$112,000</td>
-            </tr>
-            <tr>
-              <td>Donna Snider</td>
-              <td>Customer Support</td>
-              <td>New York</td>
-              <td>17</td>
-              <td>2011/01/25</td>
-              <td>$112,000</td>
-          </tr> -->
                           </tbody>
                       </table>
                   </div>

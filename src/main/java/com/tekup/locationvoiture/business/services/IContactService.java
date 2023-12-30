@@ -1,8 +1,9 @@
 package com.tekup.locationvoiture.business.services;
 import java.util.Optional;
-import java.util.List;
 
-import com.tekup.locationvoiture.doa.Entities.Contact;
+import com.tekup.locationvoiture.DAO.Entities.Contact;
+
+import java.util.List;
 
 
 public interface IContactService {

@@ -1,4 +1,4 @@
-package com.tekup.locationvoiture.doa.Entities;
+package com.tekup.locationvoiture.DAO.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +25,5 @@ public class Client {
     private Long phoneNumber;
     private String address;
     private int age;
-    
-    
+
 }

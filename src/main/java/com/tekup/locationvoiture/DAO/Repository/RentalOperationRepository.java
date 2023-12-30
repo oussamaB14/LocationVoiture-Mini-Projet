@@ -1,11 +1,14 @@
-package com.tekup.locationvoiture.doa.Repository;
+package com.tekup.locationvoiture.DAO.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.tekup.locationvoiture.doa.Entities.RentalOperation;
+import com.tekup.locationvoiture.DAO.Entities.RentalOperation;
 
 @Repository
 public interface RentalOperationRepository extends JpaRepository<RentalOperation,Long> {
+
+    RentalOperation findFirstByVehicle_Id(Long id);
+     
     
 }

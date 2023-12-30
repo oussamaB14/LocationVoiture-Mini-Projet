@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tekup.locationvoiture.DAO.Entities.Car;
+import com.tekup.locationvoiture.DAO.Repository.CarRepository;
 import com.tekup.locationvoiture.business.services.ICarService;
-import com.tekup.locationvoiture.doa.Entities.Car;
-import com.tekup.locationvoiture.doa.Repository.CarRepository;
 @Service
 public class CarServiceImp implements ICarService{
     @Autowired

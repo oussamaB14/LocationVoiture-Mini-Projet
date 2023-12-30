@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.tekup.locationvoiture.DAO.Entities.Contact;
+import com.tekup.locationvoiture.DAO.Repository.ContactRepository;
 import com.tekup.locationvoiture.business.services.IContactService;
-import com.tekup.locationvoiture.doa.Entities.Contact;
-import com.tekup.locationvoiture.doa.Repository.ContactRepository;
 
 public class ContactServiceImp implements IContactService {
     @Autowired
