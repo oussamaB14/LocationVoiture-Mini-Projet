@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Cars list</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      th:href="@{/vendor/fontawesome-free/css/all.min.css}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
+  </head>
+  <script>
+    // Data Picker Initialization
+    $('.datepicker').datepicker({
+  weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+  showMonthsShort: true
+})
+  </script>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div th:replace="~{Admin/fragments/sidebar}"></div>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <div th:replace="~{Admin/fragments/navadmin}"></div>
+        
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+          <div class="container my-3 p-3">
+            <h4 class="text-center">New Car Register</h4>
+            <form class="col-md-4 offset-md-4" th:action="@{/dashboard/rentcar/save}" th:object="${carRentForm}" method="post">
+             
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="date"
+                      class="form-control"
+                      name="startDate"
+                      placeholder="startDate"
+                      th:field="*{startDate}"
+                    />
+                    <label for="name">start Date</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                    th:field="*{endDate}"
+                      type="date"
+                      class="form-control"
+                      name="endDate"
+                      placeholder="endDate"
+                    />
+                    <label for="brand">end Date</label>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                      <input
+                      th:field="*{rentalFee}"
+                        type="number"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="rentalFee"
+                        name="rentalFee"
+                      />
+                      <label for="rentalFee">rental Fee</label>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select
+                      th:field="*{warrantyType}"
+                      class="form-select"
+                      id="floatingSelectGrid"
+                      aria-label="Floating label select example"
+                      name="warrantyType"
+                    >
+                      <!-- <option selected>Open this select menu</option> -->
+                      <option th:each="warrantyType : ${T(com.tekup.locationvoiture.DAO.Entities.WarrantyType).values()}"
+                      th:value="${warrantyType}"
+                      th:text="${warrantyType}"
+                      ></option>
+                      <!-- <option value="2">Diesel</option> -->
+                    </select>
+                    <label for="floatingSelectGrid">Warranty Type</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select
+                     th:field="*{paymentType}"
+                      class="form-select"
+                      id="floatingSelectGrid"
+                      aria-label="Floating label select example"
+                      name="paymentType"
+                    >
+                      <!-- <option selected>Manul</option> -->
+                      <option th:each="paymentType : ${T(com.tekup.locationvoiture.DAO.Entities.PaymentType).values()}"
+                      th:value="${paymentType}"
+                      th:text="${paymentType}"></option>
+                     
+                    </select>
+                    <label for="floatingSelectGrid">Payment Type</label>
+                  </div>
+                </div>
+              </div>
+              <!-- car and client selection -->
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select
+                      th:field="*{client}"
+                      class="form-select"
+                      id="floatingSelectGrid"
+                      aria-label="Floating label select example"
+                      name="client"
+                    >
+                      <!-- <option selected>Open this select menu</option> -->
+                      <option th:each="client : ${client}"
+                      th:value="${client.id}"
+                      th:text="${client.name}"
+                      ></option>
+                      <!-- <option value="2">Diesel</option> -->
+                    </select>
+                    <span th:if="${#fields.hasErrors('client')}" th:errors="*{client}">Client error</span>
+                    <label for="floatingSelectGrid">Client</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select
+                     th:field="*{car}"
+                      class="form-select"
+                      id="floatingSelectGrid"
+                      aria-label="Floating label select example"
+                      name="car"
+                    >
+                      <!-- <option selected>Manul</option> -->
+                      <option th:each="car : ${car}"
+                      th:value="${car.id}"
+                      th:text="${car.name}"></option>
+                     
+                    </select>
+                      <span th:if="${#fields.hasErrors('car')}" th:errors="*{car}">Car error</span>
+                    <label for="floatingSelectGrid">Car</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <!-- <div class="input-group mb-3">
+                  <span class="input-group-text">Price :TD</span>
+                  <input th:field="*{price}" name="price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <span class="input-group-text">.00</span>
+                </div> -->
+              <center>
+                <button type="submit" class="btn btn-primary" value="create">Rent Car</button>
+              </center>
+            </form>
+          </div>
+        </div>
+          <!-- /.container-fluid -->
+      
+      
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      
+      <!-- End of Content Wrapper -->
+
+  </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script th:src="@{vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
+    <script th:src="@{vendor/datatables/jquery.dataTables.min.js}"></script>
+    <script th:src="@{vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script th:src="@{js/sb-admin-2.min.js}"></script>
+    <script th:src="@{js/demo/datatables-demo.js}"></script>
+  </body>
+</html>

@@ -42,11 +42,11 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> 
+            <h1 class="h3 mb-4 text-gray-800">Rented Cars</h1> 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Rented Cars Table</h6>
               </div>
               <div class="card-body">
                   <div class="table-responsive">
@@ -54,46 +54,44 @@
                           <thead>
                               <tr>
                                 <th>Id</th>
-                                <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th>Description</th>
-                                <th>Available</th>
-                                <th>Image</th>
+                                <th>Car</th>
+                                <th>Client</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Warranty Type</th>
+                                <th>Payment Type</th>
+                                <th>Rental Fee</th>                    
+                                <th>Edit</th>
+                                <th>Delete</th>
                               </tr>
                           </thead>
-                          <tfoot>
+                          <!-- <tfoot>
                               <tr>
                                 <th>Id</th>
-                                <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th>Description</th>
+                                <th>Car</th>
+                                <th>Client</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Warranty Type</th>
+                                <th>Payment Type</th>
+                                <th>Rental Fee</th>
+                                <th>Fuel type</th>                       
                                 <th>Available</th>
                                 <th>Image</th>
                               </tr>
-                          </tfoot>
+                          </tfoot> -->
                           <tbody>
-                              <tr th:each="car : ${cars}">
+                              <tr th:each="car : ${rentedcars}">
                                 <th th:text="${car.id}"></th>
-                                <th th:text="${car.name}"></th>
-                                <th th:text="${car.brand}"></th>
-                                <th th:text="${car.price}"></th>
-                                <th th:text="${car.year}"></th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th th:text="${car.description}"></th>
-                                <th th:text="${car.isAvailable ? 'Yes' : 'No'}"></th>
-                                <th>Image</th>
+                                <th th:text="${car.car.name}"></th>
+                                <th th:text="${car.client.name}"></th>
+                                <th th:text="${car.startDate}"></th>
+                                <th th:text="${car.endDate}"></th>
+                                <th th:text="${car.warrantyType}"></th>
+                                <th th:text="${car.paymentType}"></th>
+                                <th th:text="${car.rentalFee}"></th>
+                                <th>edit</th>
+                                <th>Delete</th>
                               </tr>
                           </tbody>
                       </table>

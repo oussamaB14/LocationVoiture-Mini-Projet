@@ -37,4 +37,15 @@ public class RentalOperation {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
+
+    public RentalOperation( String startDate, String endDate, WarrantyType warrantyType, PaymentType paymentType, Double rentalFee, Car car, Client client) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.warrantyType = warrantyType;
+        this.paymentType = paymentType;
+        this.rentalFee = rentalFee;
+        this.car = car;
+        this.client = client;
+    }
+
 }
