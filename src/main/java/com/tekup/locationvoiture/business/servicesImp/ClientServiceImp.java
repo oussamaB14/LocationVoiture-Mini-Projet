@@ -42,5 +42,10 @@ public class ClientServiceImp implements IClientservice {
         return clientRepository.findAll();
         //throw new UnsupportedOperationException("Unimplemented method 'getClientByEmail'");
     }
+
+    @Override
+    public double getNumberOfClients() {
+        return clientRepository.count();
+    }
     
 }

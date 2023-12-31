@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Cars list</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      th:href="@{/vendor/fontawesome-free/css/all.min.css}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div th:replace="~{Admin/fragments/sidebar}"></div>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <div th:replace="~{Admin/fragments/navadmin}"></div>
+        
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+          <div class="container my-3 p-3">
+            <h4 class="text-center">New Client Register</h4>
+            <form class="col-md-4 offset-md-4" th:action="@{/dashboard/clients/save}" th:object="${clientForm}" method="post">
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="name"
+                      th:field="*{name}"
+                      placeholder="name"
+                    />
+                    <label for="name">Name</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                    th:field="*{cin}"
+                      type="number"
+                      class="form-control"
+                      name="cin"
+                      placeholder="cin"
+                    />
+                    <label for="brand">Cin</label>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                      <input
+                      th:field="*{phoneNumber}"
+                        type="number"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="phoneNumber"
+                        name="phoneNumber"
+                      />
+                      <label for="phoneNumber">Phone</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                      <input
+                      th:field="*{age}"
+                        type="number"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="age"
+                        name="age"
+                      />
+                      <label for="age">Age</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                    th:field="*{address}"
+                      type="text"
+                      class="form-control"
+                      id="floatingInput"
+                      name="address"
+                      placeholder="address"
+                    />
+                    <label for="address">address</label>
+                  </div>
+                </div>
+              </div>
+      
+              
+             
+             
+      
+              <center>
+                <button type="submit" class="btn btn-primary" value="create">Submit</button>
+              </center>
+            </form>
+          </div>
+        </div>
+          <!-- /.container-fluid -->
+      
+      
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      
+      <!-- End of Content Wrapper -->
+
+  </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script th:src="@{vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
+    <script th:src="@{vendor/datatables/jquery.dataTables.min.js}"></script>
+    <script th:src="@{vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script th:src="@{js/sb-admin-2.min.js}"></script>
+    <script th:src="@{js/demo/datatables-demo.js}"></script>
+  </body>
+</html>

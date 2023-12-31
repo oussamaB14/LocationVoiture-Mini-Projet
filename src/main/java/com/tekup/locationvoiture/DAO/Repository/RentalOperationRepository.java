@@ -8,7 +8,7 @@ import com.tekup.locationvoiture.DAO.Entities.RentalOperation;
 @Repository
 public interface RentalOperationRepository extends JpaRepository<RentalOperation,Long> {
 
-    RentalOperation findFirstByVehicle_Id(Long id);
+    RentalOperation findFirstByCar_Id(Long id);
      
     
 }

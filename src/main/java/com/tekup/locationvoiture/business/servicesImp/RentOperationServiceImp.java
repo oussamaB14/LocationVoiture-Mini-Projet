@@ -47,7 +47,7 @@ public class RentOperationServiceImp implements IRentOperationService {
 
     @Override
     public RentalOperation gRentalOperationByCarId(Long id) {
-        return  rentRepository.findFirstByVehicle_Id(id);
+        return  rentRepository.findFirstByCar_Id(id);
     }
     
 }

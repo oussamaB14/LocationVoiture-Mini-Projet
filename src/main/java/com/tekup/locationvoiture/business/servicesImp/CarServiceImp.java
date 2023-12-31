@@ -41,5 +41,10 @@ public class CarServiceImp implements ICarService{
         return carRepository.findAll();
         //throw new UnsupportedOperationException("Unimplemented method 'getAllCars'");
     }
+    //number of cars
+    @Override
+    public double getNumberOfCars() {
+        return carRepository.count();
+    }
     
 }

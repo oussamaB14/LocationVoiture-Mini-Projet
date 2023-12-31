@@ -26,4 +26,12 @@ public class Client {
     private String address;
     private int age;
 
+    public Client( String name, Long cin, Long phoneNumber, String address, int age) {
+        this.name = name;
+        this.cin = cin;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.age = age;
+    }
+
 }

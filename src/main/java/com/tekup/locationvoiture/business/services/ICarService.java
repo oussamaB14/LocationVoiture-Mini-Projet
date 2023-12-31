@@ -11,6 +11,6 @@ public interface ICarService {
     public Car updateCar(Car c);
     public void deleteCar(Long id);
     public List<Car> getAllCars();
-
+    public double getNumberOfCars();
     
 }

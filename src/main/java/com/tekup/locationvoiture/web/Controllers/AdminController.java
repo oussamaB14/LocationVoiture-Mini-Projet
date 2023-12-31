@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tekup.locationvoiture.DAO.Entities.Car;
 import com.tekup.locationvoiture.business.services.ICarService;
+import com.tekup.locationvoiture.business.services.IClientservice;
 @Controller
 @RequestMapping("/dashboard")
 public class AdminController {
      @Autowired
     ICarService carService;
+    @Autowired
+    IClientservice clientService;
     // @GetMapping()
     // public String TakeMeTodashboard() {
     //     return "/Admin/dashboard";
@@ -24,9 +27,18 @@ public class AdminController {
         model.addAttribute("cars", cars);
         return"Admin/cars";
     }
+    // car register page
+    // @GetMapping("/addcar")
+	// public String carRegister() {
+	// 	return "/Admin/AddCar";
+	// }
       @RequestMapping()
-    public String CarsListinDasgboard( Model model){
+    public String CarsListingDasgboard( Model model){
         List<Car> cars = carService.getAllCars(); 
+        double carCount =carService.getNumberOfCars();
+        double clientCount =clientService.getNumberOfClients();
+        model.addAttribute("carCount", carCount);
+        model.addAttribute("clientCount", clientCount);
         model.addAttribute("cars", cars);
         return"/Admin/dashboard";
     }

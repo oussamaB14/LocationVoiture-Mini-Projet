@@ -25,11 +25,11 @@ public class RentalOperationsController {
 		return "/addrentaloperation";
 	}
    //list of rented cars
-    @RequestMapping("/rentedcarslist")
+    @RequestMapping("/dashboard/rentedcarslist")
     public String rentedCarsList( Model model){
         List<RentalOperation> rentedcars = rentCarService.getAllRentalOperations();
         model.addAttribute("rentedcars", rentedcars);
-        return"/rentedcarslist";
+        return"/Admin/Rentedcars";
     }
    //add rental operation
    @GetMapping("/rent_register")

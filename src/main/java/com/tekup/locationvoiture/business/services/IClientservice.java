@@ -12,5 +12,6 @@ public interface IClientservice {
     public Client updateClient(Client c);
     public void deleteClient(Long id);
     public List<Client> getAllClients();
+    public double getNumberOfClients();
 
 }

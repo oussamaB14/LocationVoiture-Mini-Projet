@@ -38,4 +38,17 @@ public class Car {
     private boolean isAvailable = true;
     private String description;
 
+    public Car( String name, double price, String brand, String img, Double millage, FuelType fuelType, TransmissionType transmissionType, int year, boolean isAvailable, String description) {
+        this.name = name;
+        this.price = price;
+        this.brand = brand;
+        this.img = img;
+        this.millage = millage;
+        this.fuelType = fuelType;
+        this.transmissionType = transmissionType;
+        this.year = year;
+        this.isAvailable = isAvailable;
+        this.description = description;
+    }
+
 }
