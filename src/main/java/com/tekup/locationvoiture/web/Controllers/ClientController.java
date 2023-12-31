@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.tekup.locationvoiture.DAO.Entities.Client;
 import com.tekup.locationvoiture.business.servicesImp.ClientServiceImp;
-import com.tekup.locationvoiture.web.models.Requests.CarForm;
 import com.tekup.locationvoiture.web.models.Requests.ClientForm;
 
 import jakarta.validation.Valid;
@@ -30,7 +29,7 @@ public class ClientController {
          List<Client> clients = clientService.getAllClients();
         model.addAttribute("clients", clients);
 
-        return "clientslist";
+        return "/Admin/Clients";
     }
   // client register page
     @GetMapping("/addclient")

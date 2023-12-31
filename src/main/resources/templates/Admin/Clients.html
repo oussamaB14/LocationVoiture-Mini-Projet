@@ -5,7 +5,7 @@
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Cars list</title>
+    <title>clients list</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -42,58 +42,38 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> 
+            <h1 class="h3 mb-4 text-gray-800">Rented clients</h1> 
             <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <div class="clientd shadow mb-4">
+              <div class="clientd-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Rented clients Table</h6>
               </div>
-              <div class="card-body">
+              <div class="clientd-body">
                   <div class="table-responsive">
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead>
                               <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th>Description</th>
-                                <th>Available</th>
-                                <th>Image</th>
+                                <th>Cin</th>
+                                <th>Phone Number</th>
+                                <th>Address</th>                 
+                                <th>Age</th>
+                                <th>edit</th>
+                                <th>Delete</th>
                               </tr>
                           </thead>
-                          <tfoot>
-                              <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th>Description</th>
-                                <th>Available</th>
-                                <th>Image</th>
-                              </tr>
-                          </tfoot>
+              
                           <tbody>
-                              <tr th:each="car : ${cars}">
-                                <th th:text="${car.id}"></th>
-                                <th th:text="${car.name}"></th>
-                                <th th:text="${car.brand}"></th>
-                                <th th:text="${car.price}"></th>
-                                <th th:text="${car.year}"></th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th th:text="${car.description}"></th>
-                                <th th:text="${car.isAvailable ? 'Yes' : 'No'}"></th>
-                                <th>Image</th>
+                              <tr th:each="client : ${clients}">
+                                <th th:text="${client.id}"></th>
+                                <th th:text="${client.name}"></th>
+                                <th th:text="${client.cin}"></th>
+                                <th th:text="${client.phoneNumber}"></th>
+                                <th th:text="${client.address}"></th>
+                                <th th:text="${client.age}"></th>
+                                <th>edit</th>
+                                <th>Delete</th>
                               </tr>
                           </tbody>
                       </table>

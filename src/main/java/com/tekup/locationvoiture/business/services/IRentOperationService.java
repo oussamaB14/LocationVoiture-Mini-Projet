@@ -13,5 +13,6 @@ public interface IRentOperationService {
     public void deleteRentalOperation(Long id);
     public List<RentalOperation> getAllRentalOperations();
     public RentalOperation gRentalOperationByCarId(Long id);
+    public double getRentedCarsCount();
     //public List<RentalOperation> getAllRentalOperationsByUser(Long id);
 }

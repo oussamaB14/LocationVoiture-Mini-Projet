@@ -49,5 +49,10 @@ public class RentOperationServiceImp implements IRentOperationService {
     public RentalOperation gRentalOperationByCarId(Long id) {
         return  rentRepository.findFirstByCar_Id(id);
     }
+
+    @Override
+    public double getRentedCarsCount() {
+       return rentRepository.count();
+    }
     
 }

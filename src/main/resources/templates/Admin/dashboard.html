@@ -47,11 +47,11 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
               <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
               <a href="/dashboard/rentcar/rentregister" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                       class="fas fa-car fa-sm text-white-50"></i> Rent Car</a>
-          </div>
+          </div> -->
 
             <!-- data about cars and clients -->
             <div class="row">
@@ -64,7 +64,7 @@
                               <div class="col mr-2">
                                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                       Cars</div>
-                                  <div class="h5 mb-0 font-weight-bold text-gray-800"th:text="${#numbers.formatInteger(carCount, 0)}"></div>
+                                  <div id="availableCars" class="h5 mb-0 font-weight-bold text-gray-800"th:text="${#numbers.formatInteger(carCount, 0)}"></div>
                               </div>
                               <div class="col-auto">
                                   <i class="fas fa-car fa-2x text-gray-300"></i>
@@ -100,7 +100,7 @@
                           <div class="col mr-2">
                               <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                   Rented cars</div>
-                              <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                              <div id="rentedCars" class="h5 mb-0 font-weight-bold text-gray-800" th:text="${#numbers.formatInteger(rentedCarsCount, 0)}"></div>
                           </div>
                           <div class="col-auto">
                               <i class="fa fa-car fa-2x text-gray-300"></i>
@@ -128,6 +128,53 @@
                   </div>
               </div>
           </div>
+          <!-- /////////charts here /////// -->
+            <!-- Pie Chart -->
+            <div class="row d-sm-flex align-items-center justify-content-between">
+              <dotlottie-player src="https://lottie.host/a6671c8c-61a9-433d-964d-a478b6a0cf33/eLCls1FByd.json" background="transparent" speed="1" style="width: 500px; height: 500px;" loop autoplay></dotlottie-player>
+
+              <div class="col-xl-6 col-lg-5">
+              <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div
+                      class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary">Cars Statstic</h6>
+                      <div class="dropdown no-arrow">
+                          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                              aria-labelledby="dropdownMenuLink">
+                              <div class="dropdown-header">Dropdown Header:</div>
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                      <div class="chart-pie pt-4 pb-2">
+                          <canvas id="myPieChart"></canvas>
+                      </div>
+                      <div class="mt-4 text-center small">
+                          <span class="mr-2">
+                              <i class="fas fa-circle text-primary"></i> available 
+                          </span>
+                          <span class="mr-2">
+                              <i class="fas fa-circle text-success"></i> rented
+                          </span>
+                          <!-- <span class="mr-2">
+                              <i class="fas fa-circle text-info"></i> Referral
+                          </span> -->
+                      </div>
+                  </div>
+              </div>
+          </div></div>
+            
+           <!-- /////////charts here /////// -->
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-header py-3">
@@ -260,7 +307,11 @@
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Custom scripts for all pages-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="js/sb-admin-2.min.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
   </body>
 </html>
