@@ -32,10 +32,7 @@ public class NavController implements ErrorController {
     public String LoginPage(){
         return"login";
     }
-     @GetMapping("/contact")
-    public String contactPage(){
-        return"contact";
-    }
+ 
      @GetMapping("/about")
     public String aboutPage(){
         return"about";

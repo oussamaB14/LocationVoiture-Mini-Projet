@@ -24,4 +24,12 @@ public class Contact {
     private String PhoneNumber;
     private String email;
     private String msg;
+
+    public Contact(String Name, String PhoneNumber, String email, String msg) {
+        this.Name = Name;
+        this.PhoneNumber = PhoneNumber;
+        this.email = email;
+        this.msg = msg;
+    }
+
 }

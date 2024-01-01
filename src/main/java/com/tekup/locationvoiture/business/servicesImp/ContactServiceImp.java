@@ -3,11 +3,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 import com.tekup.locationvoiture.DAO.Entities.Contact;
 import com.tekup.locationvoiture.DAO.Repository.ContactRepository;
 import com.tekup.locationvoiture.business.services.IContactService;
-
+@Service
 public class ContactServiceImp implements IContactService {
     @Autowired
     ContactRepository contactRepository;
@@ -24,6 +24,11 @@ public class ContactServiceImp implements IContactService {
     @Override
     public List<Contact> getAllContacts() {
        return contactRepository.findAll();
+    }
+
+    @Override
+    public double getMessagesCount() {
+       return contactRepository.count();
     }
     
 }

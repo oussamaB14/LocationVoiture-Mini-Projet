@@ -10,5 +10,6 @@ public interface IContactService {
 public Optional<Contact> getContact(Long id);
 public Contact addContact(Contact c);
 public List<Contact> getAllContacts();
+public double getMessagesCount();
     
 }
