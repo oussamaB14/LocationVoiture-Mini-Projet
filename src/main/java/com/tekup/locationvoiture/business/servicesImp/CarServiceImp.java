@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tekup.locationvoiture.DAO.Entities.Car;
+import com.tekup.locationvoiture.DAO.Entities.TransmissionType;
 import com.tekup.locationvoiture.DAO.Repository.CarRepository;
 import com.tekup.locationvoiture.business.services.ICarService;
 @Service
@@ -45,6 +46,26 @@ public class CarServiceImp implements ICarService{
     @Override
     public double getNumberOfCars() {
         return carRepository.count();
+    }
+
+    @Override
+    public List<Car> getCarsByBrandName(String brand) {
+       return carRepository.findByName(brand);
+    }
+
+    @Override
+    public List<Car> getCarsByTranmissionType(TransmissionType transmissionType) {
+       return carRepository.findByTransmissionType(transmissionType);
+    }
+
+    @Override
+    public List<Car> getCarsByAvailability(boolean status) {
+       return carRepository.findByisAvailable(status);
+    }
+
+    @Override
+    public List<Car> getCarsByName(String name) {
+       return carRepository.findByName(name);
     }
     
 }

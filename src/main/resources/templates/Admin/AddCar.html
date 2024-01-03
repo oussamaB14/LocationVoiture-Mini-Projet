@@ -45,7 +45,7 @@
             <!-- Page Heading -->
           <div class="container my-3 p-3">
             <h4 class="text-center">New Car Register</h4>
-            <form class="col-md-4 offset-md-4" th:action="@{/cars/save}" th:object="${carForm}" method="post">
+            <form class="col-md-4 offset-md-4" th:action="@{/dashboard/cars/save}" th:object="${carForm}" method="post"  enctype="multipart/form-data">
               <div class="mb-3 row g-2">
                 <div class="col-md">
                   <div class="form-floating mb-3">
