@@ -29,9 +29,8 @@
                             <div class="d-flex flex-md-row flex-column">
                                 <h3 class="mr-3" th:text="${car.name}"></h3>
                       
-                                <div class=" text-info ml-auto text-right">
-                                    <h3 th:text="${car.price}"></h3>
-        
+                                <div class="text-info ml-auto text-right">
+                                    <h3 th:text="${car.price} + ' TD/day'"></h3>                        
                                 </div>
                               
                             </div>
@@ -59,7 +58,9 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="d-flex flex-md-row flex-column align-items-center justify-content-end">
-                                            <button class="btn btn-primary w-100 mb-md-0 mb-3 mr-md-3 mr-0"></i> Details</button>
+                                            <form th:action="@{|/carslist/${car.id}|}">
+                                            <button class="btn btn-primary w-100 mb-md-0 mb-3 mr-md-3 mr-0 "></i> Details</button>
+                                            </form>
                                             <!-- <button class="btn btn-default w-100 mb-md-0 mb-3 mr-md-3 mr-0"><i class="fas fa-parking"></i> Park</button>
                                             <button class="btn btn-default w-100"><i class="fas fa-comment"></i> Comments(18)</button> -->
                                         </div>

@@ -196,23 +196,10 @@
                                 <th>Description</th>
                                 <th>Available</th>
                                 <th>Image</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                               </tr>
                           </thead>
-                          <tfoot>
-                              <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th>Description</th>
-                                <th>Available</th>
-                                <th>Image</th>
-                              </tr>
-                          </tfoot>
                           <tbody>
                               <tr th:each="car : ${cars}">
                                 <th th:text="${car.id}"></th>
@@ -220,12 +207,14 @@
                                 <th th:text="${car.brand}"></th>
                                 <th th:text="${car.price}"></th>
                                 <th th:text="${car.year}"></th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
+                                <th th:text="${car.millage}"></th>
+                                <th th:text="${car.fuelType}"></th>
+                                <th th:text="${car.transmissionType}"></th>
                                 <th th:text="${car.description}"></th>
                                 <th th:text="${car.isAvailable ? 'Yes' : 'No'}"></th>
                                 <th>Image</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                               </tr>
                           </tbody>
                       </table>
