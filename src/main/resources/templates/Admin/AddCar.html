@@ -21,7 +21,10 @@
     <!-- Custom styles for this template-->
     <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet" />
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-    <link th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
+    <link
+      th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}"
+      rel="stylesheet"
+    />
   </head>
 
   <body id="page-top">
@@ -37,15 +40,18 @@
         <div id="content">
           <!-- Topbar -->
           <div th:replace="~{Admin/fragments/navadmin}"></div>
-        
           <!-- End of Topbar -->
 
-          <!-- Begin Page Content -->
-          <div class="container-fluid">
-            <!-- Page Heading -->
+          <!-- Page Heading -->
           <div class="container my-3 p-3">
             <h4 class="text-center">New Car Register</h4>
-            <form class="col-md-4 offset-md-4" th:action="@{/dashboard/cars/save}" th:object="${carForm}" method="post"  enctype="multipart/form-data">
+            <form
+              class="col-md-4 offset-md-4"
+              th:action="@{/dashboard/cars/save}"
+              th:object="${carForm}"
+              method="post"
+              enctype="multipart/form-data"
+            >
               <div class="mb-3 row g-2">
                 <div class="col-md">
                   <div class="form-floating mb-3">
@@ -55,65 +61,64 @@
                       name="name"
                       th:field="*{name}"
                     />
-                    <label for="name">Name</label>
+                    <label>Name</label>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="form-floating mb-3">
                     <input
-                    th:field="*{brand}"
+                      th:field="*{brand}"
                       type="text"
                       class="form-control"
                       name="brand"
                       placeholder="brand"
                     />
-                    <label for="brand">Brand</label>
+                    <label>Brand</label>
                   </div>
                 </div>
               </div>
               <div class="mb-3 row g-2">
                 <div class="col-md">
-                    <div class="form-floating mb-3">
-                      <input
+                  <div class="form-floating mb-3">
+                    <input
                       th:field="*{millage}"
-                        type="number"
-                        class="form-control"
-                        id="floatingInput"
-                        placeholder="millage"
-                        name="millage"
-                      />
-                      <label for="millage">Millage</label>
-                    </div>
+                      type="number"
+                      class="form-control"
+                      placeholder="millage"
+                      name="millage"
+                    />
+                    <label>Millage</label>
+                  </div>
                 </div>
                 <div class="col-md">
                   <div class="form-floating mb-3">
                     <input
-                    th:field="*{year}"
+                      th:field="*{year}"
                       type="number"
                       class="form-control"
                       id="floatingInput"
                       name="year"
                       placeholder="year"
                     />
-                    <label for="year">Year</label>
+                    <label>Year</label>
                   </div>
                 </div>
               </div>
-      
+
               <div class="mb-3 row g-2">
                 <div class="col-md">
                   <div class="form-floating">
                     <select
                       th:field="*{fuelType}"
                       class="form-select"
-                      id="floatingSelectGrid"
                       aria-label="Floating label select example"
                       name="fuelType"
                     >
                       <!-- <option selected>Open this select menu</option> -->
-                      <option th:each="fuelType : ${T(com.tekup.locationvoiture.DAO.Entities.FuelType).values()}"
-                      th:value="${fuelType}"
-                      th:text="${fuelType}"
+                      <option
+                        th:each="fuelType : ${T(com.tekup.locationvoiture.DAO.Entities.FuelType).values()}"
+                        th:value="${fuelType}"
+                        th:text="${fuelType}"
                       ></option>
                       <!-- <option value="2">Diesel</option> -->
                     </select>
@@ -123,17 +128,18 @@
                 <div class="col-md">
                   <div class="form-floating">
                     <select
-                     th:field="*{transmissionType}"
+                      th:field="*{transmissionType}"
                       class="form-select"
                       id="floatingSelectGrid"
                       aria-label="Floating label select example"
                       name="transmissionType"
                     >
                       <!-- <option selected>Manul</option> -->
-                      <option th:each="transmissionType : ${T(com.tekup.locationvoiture.DAO.Entities.TransmissionType).values()}"
-                      th:value="${transmissionType}"
-                      th:text="${transmissionType}"></option>
-                     
+                      <option
+                        th:each="transmissionType : ${T(com.tekup.locationvoiture.DAO.Entities.TransmissionType).values()}"
+                        th:value="${transmissionType}"
+                        th:text="${transmissionType}"
+                      ></option>
                     </select>
                     <label for="floatingSelectGrid">Transmission</label>
                   </div>
@@ -142,10 +148,16 @@
               <div class="form-group">
                 <div class="input-group mb-3">
                   <span class="input-group-text">Price :TD</span>
-                  <input th:field="*{price}" name="price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <input
+                    th:field="*{price}"
+                    name="price"
+                    type="text"
+                    class="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  />
                   <span class="input-group-text">.00</span>
                 </div>
-      
+              </div>
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label"
                   >Description</label
@@ -160,18 +172,20 @@
               </div>
               <div class="form-group">
                 <label for="formFile" class="form-label mt-4">Add image </label>
-                <input th:field="*{img}" name="img" class="form-control" type="file" id="formFile">
+                <input
+                  name="file"
+                  class="form-control"
+                  type="file"
+                  id="formFile"
+                />
               </div>
-      
-              <center>
-                <button type="submit" class="btn btn-primary" value="create">Submit</button>
-              </center>
+              <button type="submit" class="btn btn-primary" value="create">
+                Submit
+              </button>
             </form>
           </div>
         </div>
-          <!-- /.container-fluid -->
-      
-      
+        <!-- /.container-fluid -->
         <!-- End of Main Content -->
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
@@ -182,10 +196,9 @@
           </div>
         </footer>
         <!-- End of Footer -->
-      
+      </div>
       <!-- End of Content Wrapper -->
-
-  </div>
+    </div>
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->

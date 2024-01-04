@@ -81,17 +81,21 @@
                               </tr>
                           </tfoot> -->
                           <tbody>
-                              <tr th:each="car : ${rentedcars}">
-                                <th th:text="${car.id}"></th>
-                                <th th:text="${car.car.name}"></th>
-                                <th th:text="${car.client.name}"></th>
-                                <th th:text="${car.startDate}"></th>
-                                <th th:text="${car.endDate}"></th>
-                                <th th:text="${car.warrantyType}"></th>
-                                <th th:text="${car.paymentType}"></th>
-                                <th th:text="${car.rentalFee}"></th>
-                                <th>edit</th>
-                                <th>Delete</th>
+                              <tr th:each="rent : ${rentedcars}">
+                                <th th:text="${rent.id}"></th>
+                                <!-- <th th:text="${rent.car.name}">aa</th>
+                                <th th:text="${rent.client.name}">aa</th> -->
+                                <th th:text="${rent.startDate}"></th>
+                                <th th:text="${rent.endDate}"></th>
+                                <th th:text="${rent.warrantyType}"></th>
+                                <th th:text="${rent.paymentType}"></th>
+                                <th th:text="${rent.rentalFee}"></th>
+                                <th><form th:action="@{|/dashboard/rentcar/edit/${rent.id}|}">
+                                  <input type="submit" value="Edit" class="btn btn-outline-success"> 
+                                </form></th>
+                                <th><form th:action="@{|/dashboard/rentcar/delete/${rent.id}|}">
+                                  <input type="submit" value="End Rent" class="btn btn-outline-danger"> 
+                                </form></th>
                               </tr>
                           </tbody>
                       </table>

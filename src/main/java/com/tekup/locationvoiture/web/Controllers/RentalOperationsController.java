@@ -19,6 +19,7 @@ import com.tekup.locationvoiture.DAO.Entities.RentalOperation;
 import com.tekup.locationvoiture.business.services.ICarService;
 import com.tekup.locationvoiture.business.services.IClientservice;
 import com.tekup.locationvoiture.business.services.IRentOperationService;
+import com.tekup.locationvoiture.web.models.Requests.CarForm;
 import com.tekup.locationvoiture.web.models.Requests.RentForm;
 
 import jakarta.validation.Valid;
@@ -58,19 +59,65 @@ public class RentalOperationsController {
      }
      RentalOperation rentCar = new RentalOperation( rentForm.getStartDate(), rentForm.getEndDate(), rentForm.getWarrantyType(), rentForm.getPaymentType(), rentForm.getRentalFee(), rentForm.getCar(), rentForm.getClient());
      rentCarService.addRentalOperation(rentCar);
+     // Get the associated car
+    Car rentedCar = rentForm.getCar();
+    // Update the availability status of the car to false
+    if (rentedCar != null) {
+        rentedCar.setAvailable(false);
+        carService.updateCar(rentedCar); // Assuming you have a method to update the car in your service
+    }
      return "redirect:/dashboard";
    }
-   //Update Rental Operation
-   @RequestMapping("/editrent/{id}")
+   //Update Rental Operation page
+   @GetMapping("/edit/{id}")
    public String updateRentalOperation(@PathVariable("id") Long id ,Model model) {
-      Optional<RentalOperation> r=rentCarService.getRentOperation(id);
-      model.addAttribute("carRental",r);
-      return "/carRentalEdit";
+      Optional<RentalOperation> rentedCar=rentCarService.getRentOperation(id);
+      if(rentedCar!=null){
+          model.addAttribute("rentForm",new RentForm(
+            rentedCar.get().getStartDate(),
+            rentedCar.get().getEndDate(), 
+            rentedCar.get().getWarrantyType(),
+            rentedCar.get().getPaymentType(),
+            rentedCar.get().getRentalFee(),
+            rentedCar.get().getCar(),
+            rentedCar.get().getClient()
+          ));
+          model.addAttribute("idr", id); 
+      }
+     
+      return "/Admin/updateRentalOperation";
    }
+   //update rental operation 
+   @PostMapping("/edit/{id}")
+    public String updateCarById(@PathVariable("id") Long id, @ModelAttribute("rentForm") RentForm rentForm,BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return "Admin/updateRentalOperation";
+        }
+        Optional<RentalOperation> rent = rentCarService.getRentOperation(id);
+                if (rent.isPresent()) {
+            rent.get().setStartDate(rentForm.getStartDate());
+            rent.get().setEndDate(rentForm.getEndDate());
+            rent.get().setWarrantyType(rentForm.getWarrantyType());
+            rent.get().setPaymentType(rentForm.getPaymentType());
+            rent.get().setRentalFee(rentForm.getRentalFee());
+            rent.get().setCar(rentForm.getCar());
+            rent.get().setClient(rentForm.getClient());
+            this.rentCarService.updateRentalOperation(rent.get());
+            return "redirect:/dashboard";
+        } else {
+            return "Admin/updateRentalOperation";
+        }
+    }
    //delete Rental Operation
-   @RequestMapping("/deleterentcar/{id}")
+   @RequestMapping("/delete/{id}")
    public String deleteRentalOperation (@PathVariable("id")Long id ) {
+      Optional<RentalOperation> rentalOperation = rentCarService.getRentOperation(id);
       rentCarService.deleteRentalOperation(id);
-      return "redirect:/cars";
-}
-}
+      if (rentalOperation != null && rentalOperation.get() != null) {
+         Car rentedCar = rentalOperation.get().getCar();
+         // Set isAvailable to true
+         rentedCar.setAvailable(true);
+         // Update the car in the database
+         carService.updateCar(rentedCar); }
+      return "redirect:/dashboard/rentcar/rentedcarslist";}
+      }

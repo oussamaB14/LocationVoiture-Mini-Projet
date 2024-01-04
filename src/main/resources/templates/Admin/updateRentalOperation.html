@@ -20,8 +20,16 @@
 
     <!-- Custom styles for this template-->
     <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
   </head>
+  <script>
+    // Data Picker Initialization
+    $('.datepicker').datepicker({
+  weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+  showMonthsShort: true
+})
+  </script>
 
   <body id="page-top">
     <!-- Page Wrapper -->
@@ -42,63 +50,143 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> 
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-              </div>
-              <div class="card-body">
-                  <div class="table-responsive">
-                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                          <thead>
-                              <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th>Description</th>
-                                <th>Available</th>
-                                <th>Image</th>
-                              </tr>
-                          </thead>
-                          <tfoot>
-                              <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th>Description</th>
-                                <th>Available</th>
-                                <th>Image</th>
-                              </tr>
-                          </tfoot>
-                          <tbody>
-                              <tr th:each="car : ${cars}">
-                                <th th:text="${car.id}"></th>
-                                <th th:text="${car.name}"></th>
-                                <th th:text="${car.brand}"></th>
-                                <th th:text="${car.price}"></th>
-                                <th th:text="${car.year}"></th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th th:text="${car.description}"></th>
-                                <th th:text="${car.isAvailable ? 'Yes' : 'No'}"></th>
-                                <th>Image</th>
-                              </tr>
-                          </tbody>
-                      </table>
+          <div class="container my-3 p-3">
+            <h4 class="text-center">New Car Register</h4>
+            <form class="col-md-4 offset-md-4" th:action="@{|/dashboard/rentcar/edit/${idr}|}" th:object="${rentForm}" method="post">
+             
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="date"
+                      class="form-control"
+                      name="startDate"
+                      placeholder="startDate"
+                      th:field="*{startDate}"
+                    />
+                    <label for="name">start Date</label>
                   </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                    th:field="*{endDate}"
+                      type="date"
+                      class="form-control"
+                      name="endDate"
+                      placeholder="endDate"
+                    />
+                    <label for="brand">end Date</label>
+                  </div>
+                </div>
               </div>
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                      <input
+                      th:field="*{rentalFee}"
+                        type="number"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="rentalFee"
+                        name="rentalFee"
+                      />
+                      <label for="rentalFee">rental Fee</label>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select
+                      th:field="*{warrantyType}"
+                      class="form-select"
+                      id="floatingSelectGrid"
+                      aria-label="Floating label select example"
+                      name="warrantyType"
+                    >
+                      <!-- <option selected>Open this select menu</option> -->
+                      <option th:each="warrantyType : ${T(com.tekup.locationvoiture.DAO.Entities.WarrantyType).values()}"
+                      th:value="${warrantyType}"
+                      th:text="${warrantyType}"
+                      ></option>
+                      <!-- <option value="2">Diesel</option> -->
+                    </select>
+                    <label for="floatingSelectGrid">Warranty Type</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select
+                     th:field="*{paymentType}"
+                      class="form-select"
+                      id="floatingSelectGrid"
+                      aria-label="Floating label select example"
+                      name="paymentType"
+                    >
+                      <!-- <option selected>Manul</option> -->
+                      <option th:each="paymentType : ${T(com.tekup.locationvoiture.DAO.Entities.PaymentType).values()}"
+                      th:value="${paymentType}"
+                      th:text="${paymentType}"></option>
+                     
+                    </select>
+                    <label for="floatingSelectGrid">Payment Type</label>
+                  </div>
+                </div>
+              </div>
+              <!-- car and client selection -->
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select
+                      th:field="*{client}"
+                      class="form-select"
+                      id="floatingSelectGrid"
+                      aria-label="Floating label select example"
+                      name="client"
+                    >
+                      <!-- <option selected>Open this select menu</option> -->
+                      <option th:each="client : ${client}"
+                      th:value="${client.id}"
+                      th:text="${client.name}"
+                      ></option>
+      
+                    </select>
+                    <span th:if="${#fields.hasErrors('client')}" th:errors="*{client}">Client error</span>
+                    <label for="floatingSelectGrid">Client</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select
+                     th:field="*{car}"
+                      class="form-select"
+                      id="floatingSelectGrid"
+                      aria-label="Floating label select example"
+                      name="car"
+                    >
+                      <!-- <option selected>Manul</option> -->
+                      <option th:each="car : ${car}"
+                      th:value="${car.id}"
+                      th:text="${car.name}"></option>
+                     
+                    </select>
+                      <span th:if="${#fields.hasErrors('car')}" th:errors="*{car}">Car error</span>
+                    <label for="floatingSelectGrid">Car</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <!-- <div class="input-group mb-3">
+                  <span class="input-group-text">Price :TD</span>
+                  <input th:field="*{price}" name="price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <span class="input-group-text">.00</span>
+                </div> -->
+              <center>
+                <button type="submit" class="btn btn-primary" value="create">Rent Car</button>
+              </center>
+            </form>
           </div>
         </div>
           <!-- /.container-fluid -->

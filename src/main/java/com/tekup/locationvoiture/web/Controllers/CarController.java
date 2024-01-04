@@ -3,7 +3,7 @@ package com.tekup.locationvoiture.web.Controllers;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.validator.constraints.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-// import java.util.UUID;
+import java.util.UUID;
 import com.tekup.locationvoiture.DAO.Entities.Car;
 
 import com.tekup.locationvoiture.business.services.ICarService;
@@ -63,66 +63,21 @@ public class CarController {
 	}
     //Add car
     @PostMapping("/save")
-    public String AddCar(@Valid @ModelAttribute("carForm") CarForm carForm,@RequestParam("file") MultipartFile file,BindingResult bindingResult){
+    public String AddCar(@Valid @ModelAttribute("carForm") CarForm carForm,BindingResult bindingResult,final @RequestParam MultipartFile file)throws IOException {
         if(bindingResult.hasErrors()){
-            return "/Admin/AddCar";
+            return "Admin/AddCar";
         }
-        // if (!file.isEmpty()) {
-        //     try {
-        //         // Get the bytes from the uploaded file
-        //         byte[] bytes = file.getBytes();
-    
-        //         // Define the file path where you want to save the uploaded image
-        //         String imagePath = "src/main/resources/static/images/" + file.getOriginalFilename();
-    
-        //         // Save the file to the specified path
-        //         Path path = Paths.get(imagePath);
-        //         Files.write(path, bytes);
-    
-        //         // Set the image path in your Car object
-        //         carForm.setImg("/images/" + file.getOriginalFilename()); // Adjust the path as needed
-        //     } catch (IOException e) {
-        //         e.printStackTrace();
-        //         // Handle the exception appropriately (e.g., return an error view)
-        //         return "error";
-        //     }
-        // } else {
-        //     // Handle the case where no file is selected (optional)
-        //     // You may want to set a default image or display an error message
-        //     carForm.setImg("/images/default.jpg"); // Adjust the default image path as needed
-        // }
-    
-        // StringBuilder fileNames = new StringBuilder();
-        // Path fileNameAndPath = Paths.get("src/main/resources/static/images",file.getOriginalFilename());
-        // fileNames.append(file.getOriginalFilename());
-        // try {
-        //     Files.write(fileNameAndPath, file.getBytes());
-        // } catch (IOException e) {
-        //     // Handle the exception here, for example by logging it
-        //     e.printStackTrace();
-        // }
-        try {
-            if (file != null && !file.isEmpty()) {
-                byte[] bytes = file.getBytes();
-                String imagePath = "src/main/resources/static/images/" + file.getOriginalFilename();
-                Path path = Paths.get(imagePath);
-                Files.write(path, bytes);
-    
-                // Set the image path directly in the Car entity
-                carForm.setImg("/images/" + file.getOriginalFilename()); // Adjust the path as needed
-    
-                // Other Car creation logic...
-                // Here, you might want to use carForm.getImg() for setting the image path in the Car entity.
-            } else {
-                // Handle the case where no file is selected (optional)
-                // You may want to set a default image or display an error message
-                carForm.setImg("/images/default.jpg"); // Adjust the default image path as needed
-            }
+        //save image
+        StringBuilder fileNames = new StringBuilder();
+        String randomName = UUID.randomUUID().toString();
+        Path fileNameAndPath = Paths.get("src/main/resources/static/images", randomName+file.getOriginalFilename());
+        fileNames.append(randomName+file.getOriginalFilename());
+        Files.write(fileNameAndPath, file.getBytes());
         Car car=new Car(
             carForm.getName(),
             carForm.getPrice(),
             carForm.getBrand(),
-            carForm.getImg(),
+            fileNames.toString(),
             carForm.getMillage(),
             carForm.getFuelType(), 
             carForm.getTransmissionType(),
@@ -130,10 +85,7 @@ public class CarController {
             true,
             carForm.getDescription());
             carService.addCar(car);
-        return "redirect:/dashboard"; } catch (IOException e) {
-            e.printStackTrace();
-            return "error";
-        }
+        return "redirect:/dashboard";
     }
     //update car page
     @GetMapping("/edit/{id}")
