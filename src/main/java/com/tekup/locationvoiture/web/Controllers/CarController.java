@@ -136,7 +136,7 @@ public class CarController {
         // Optional <Car> car = carService.getCar(id);
         // Optional <RentalOperation> rentedCar = carRentService.getRentOperation(id).get().getCar(car);
 		carService.deleteCar(id);
-		return "redirect:/dashboard/carslist";
+		return "redirect:/dashboard/cars/carslist";
 	}
 	
 

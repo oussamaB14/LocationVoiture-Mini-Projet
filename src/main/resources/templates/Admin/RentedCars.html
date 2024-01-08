@@ -42,7 +42,6 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Rented Cars</h1> 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-header py-3">
@@ -83,8 +82,8 @@
                           <tbody>
                               <tr th:each="rent : ${rentedcars}">
                                 <th th:text="${rent.id}"></th>
-                                <!-- <th th:text="${rent.car.name}">aa</th>
-                                <th th:text="${rent.client.name}">aa</th> -->
+                                <th th:text="${rent.car.name}">aa</th>
+                                <th th:text="${rent.client.name}">aa</th>
                                 <th th:text="${rent.startDate}"></th>
                                 <th th:text="${rent.endDate}"></th>
                                 <th th:text="${rent.warrantyType}"></th>
@@ -128,16 +127,16 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script th:src="@{vendor/jquery/jquery.min.js}"></script>
-    <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
-    <script th:src="@{vendor/datatables/jquery.dataTables.min.js}"></script>
-    <script th:src="@{vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+    <script th:src="@{/vendor/datatables/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/vendor/datatables/dataTables.bootstrap4.min.js}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script th:src="@{js/sb-admin-2.min.js}"></script>
-    <script th:src="@{js/demo/datatables-demo.js}"></script>
+    <script th:src="@{/js/sb-admin-2.min.js}"></script>
+    <script th:src="@{/js/demo/datatables-demo.js}"></script>
   </body>
 </html>

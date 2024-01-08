@@ -40,5 +40,11 @@ public class ContactFormController {
         
         
     }
-    
+    // @RequestMapping("/delete/{id}")
+    //     public String deleteClient(@PathVariable("id")Long id) {
+    //         // Optional <Car> car = carService.getCar(id);
+    //         // Optional <RentalOperation> rentedCar = carRentService.getRentOperation(id).get().getCar(car);
+    //         contactService.
+    //                     return "redirect:/dashboard/cars/carslist";
+    //     }
 }

@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template-->
     <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
   </head>
 
@@ -42,63 +43,85 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> 
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-              </div>
-              <div class="card-body">
-                  <div class="table-responsive">
-                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                          <thead>
-                              <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th>Description</th>
-                                <th>Available</th>
-                                <th>Image</th>
-                              </tr>
-                          </thead>
-                          <tfoot>
-                              <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Year</th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th>Description</th>
-                                <th>Available</th>
-                                <th>Image</th>
-                              </tr>
-                          </tfoot>
-                          <tbody>
-                              <tr th:each="car : ${cars}">
-                                <th th:text="${car.id}"></th>
-                                <th th:text="${car.name}"></th>
-                                <th th:text="${car.brand}"></th>
-                                <th th:text="${car.price}"></th>
-                                <th th:text="${car.year}"></th>
-                                <th>Millage</th>
-                                <th>Fuel type</th>
-                                <th>Transmission Type</th>
-                                <th th:text="${car.description}"></th>
-                                <th th:text="${car.isAvailable ? 'Yes' : 'No'}"></th>
-                                <th>Image</th>
-                              </tr>
-                          </tbody>
-                      </table>
+          <div class="container my-3 p-3">
+            <h4 class="text-center">New Client Register</h4>
+            <form class="col-md-4 offset-md-4" th:action="@{|/dashboard/clients/edit/${idc}|}" th:object="${clientForm}" method="post">
+              <div class="mb-3 row g-2">
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="name"
+                      th:field="*{name}"
+                      placeholder="name"
+                    />
+                    <label for="name">Name</label>
                   </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                    th:field="*{cin}"
+                      type="number"
+                      class="form-control"
+                      name="cin"
+                      placeholder="cin"
+                    />
+                    <label for="brand">Cin</label>
+                  </div>
+                </div>
               </div>
+              <div class="mb-3">
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                      <input
+                      th:field="*{phoneNumber}"
+                        type="number"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="phoneNumber"
+                        name="phoneNumber"
+                      />
+                      <label for="phoneNumber">Phone</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                      <input
+                      th:field="*{age}"
+                        type="number"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="age"
+                        name="age"
+                      />
+                      <label for="age">Age</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input
+                    th:field="*{address}"
+                      type="text"
+                      class="form-control"
+                      id="floatingInput"
+                      name="address"
+                      placeholder="address"
+                    />
+                    <label for="address">address</label>
+                  </div>
+                </div>
+              </div>
+      
+              
+             
+             
+      
+              <center>
+                <button type="submit" class="btn btn-primary" value="create">Submit</button>
+              </center>
+            </form>
           </div>
         </div>
           <!-- /.container-fluid -->

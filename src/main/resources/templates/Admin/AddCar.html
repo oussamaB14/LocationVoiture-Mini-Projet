@@ -60,6 +60,7 @@
                       class="form-control"
                       name="name"
                       th:field="*{name}"
+                      required
                     />
                     <label>Name</label>
                   </div>
@@ -72,6 +73,7 @@
                       class="form-control"
                       name="brand"
                       placeholder="brand"
+                      required
                     />
                     <label>Brand</label>
                   </div>
@@ -86,6 +88,7 @@
                       class="form-control"
                       placeholder="millage"
                       name="millage"
+                      required
                     />
                     <label>Millage</label>
                   </div>
@@ -99,6 +102,7 @@
                       id="floatingInput"
                       name="year"
                       placeholder="year"
+                      required
                     />
                     <label>Year</label>
                   </div>
@@ -113,12 +117,14 @@
                       class="form-select"
                       aria-label="Floating label select example"
                       name="fuelType"
+                      required
                     >
                       <!-- <option selected>Open this select menu</option> -->
                       <option
                         th:each="fuelType : ${T(com.tekup.locationvoiture.DAO.Entities.FuelType).values()}"
                         th:value="${fuelType}"
                         th:text="${fuelType}"
+                        required
                       ></option>
                       <!-- <option value="2">Diesel</option> -->
                     </select>
@@ -133,6 +139,7 @@
                       id="floatingSelectGrid"
                       aria-label="Floating label select example"
                       name="transmissionType"
+                      required
                     >
                       <!-- <option selected>Manul</option> -->
                       <option
@@ -154,8 +161,9 @@
                     type="text"
                     class="form-control"
                     aria-label="Amount (to the nearest dollar)"
+                    required
                   />
-                  <span class="input-group-text">.00</span>
+                  <span class="input-group-text"></span>
                 </div>
               </div>
               <div class="mb-3">
@@ -207,16 +215,16 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script th:src="@{vendor/jquery/jquery.min.js}"></script>
-    <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
-    <script th:src="@{vendor/datatables/jquery.dataTables.min.js}"></script>
-    <script th:src="@{vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+    <script th:src="@{/vendor/datatables/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/vendor/datatables/dataTables.bootstrap4.min.js}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script th:src="@{js/sb-admin-2.min.js}"></script>
-    <script th:src="@{js/demo/datatables-demo.js}"></script>
+    <script th:src="@{/js/sb-admin-2.min.js}"></script>
+    <script th:src="@{/js/demo/datatables-demo.js}"></script>
   </body>
 </html>

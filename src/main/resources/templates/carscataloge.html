@@ -40,7 +40,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-12">
                                         <ul>
-                                            <li><i class="fas fa-tachometer-alt"></i> <strong>Millage:</strong> 255,000 KM </li>
+                                            <li><i class="fas fa-tachometer-alt"></i> <strong>Millage:</strong> <i th:text="${car.millage}"></i></li>
                                             <li><i class="fas fa-users"></i> <strong>Prev Owners:</strong> 3</li>
                                             <li><i class="fas fa-calendar" ></i > <strong >First Registration:</strong> <i th:text="${car.year}"></i></li>
                                             <li><i class="fas fa-info-circle"></i> <strong>Displacement:</strong> 1,390cc</li>
@@ -49,11 +49,11 @@
                                     </div>
                                     <div class="col-md-8 col-12">
                                         <ul>
-                                            <li><i class="fas fa-info-circle"></i> <strong>Fuel Type:</strong> Petrol </li>
-                                            <li><i class="fas fa-info-circle"></i> <strong>Consumption(combined):</strong> approx. 6.4 l/100km</li>
-                                            <li><i class="fas fa-info-circle"></i> <strong>CO₂ Emissions:</strong> approx. 150 g/km (combined)</li>
+                                            <li><i class="fas fa-info-circle"></i> <strong>Fuel Type:</strong> <i th:text="${car.fuelType}"></i> </li>
+                                            <li><i class="fas fa-info-circle"></i> <strong>Transmission Type :</strong> <i th:text="${car.transmissionType}"></li>
+                                            <li><i class="fas fa-info-circle"></i> <strong>Available:</strong><i th:text="${car.isAvailable? 'available':'rented'}"></li>
                                             <li data-toggle="tooltip" title="The emission class determines the tax bracket of a vehicle. You can find it under number 14 in the registration certificate part 1 (vehicle registration)."><i class="fas fa-info-circle"></i> <strong>Emission Class:</strong> 1,390cc</li>
-                                            <li><i class="fas fa-info-circle"></i> <strong>Perfomance:</strong> 118 kW (160 hp)</li>
+                                            <!-- <li><i class="fas fa-info-circle"></i> <strong>Perfomance:</strong> 118 kW (160 hp)</li> -->
                                         </ul>
                                     </div>
                                     <div class="col-md-4">

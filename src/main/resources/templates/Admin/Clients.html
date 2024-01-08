@@ -42,11 +42,11 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Rented clients</h1> 
+            <h1 class="h3 mb-4 text-gray-800">clients</h1> 
             <!-- DataTales Example -->
             <div class="clientd shadow mb-4">
               <div class="clientd-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Rented clients Table</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">clients Table</h6>
               </div>
               <div class="clientd-body">
                   <div class="table-responsive">
@@ -72,8 +72,12 @@
                                 <th th:text="${client.phoneNumber}"></th>
                                 <th th:text="${client.address}"></th>
                                 <th th:text="${client.age}"></th>
-                                <th>edit</th>
-                                <th>Delete</th>
+                                <th><form th:action="@{|/dashboard/clients/edit/${client.id}|}">
+                                  <input type="submit" value="Edit" class="btn btn-outline-success"> 
+                                </form></th>
+                                <th><form th:action="@{|/dashboard/clients/delete/${client.id}|}">
+                                  <input type="submit" value="Delete" class="btn btn-outline-danger"> 
+                                </form></th>
                               </tr>
                           </tbody>
                       </table>
@@ -106,16 +110,16 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script th:src="@{vendor/jquery/jquery.min.js}"></script>
-    <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
-    <script th:src="@{vendor/datatables/jquery.dataTables.min.js}"></script>
-    <script th:src="@{vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+    <script th:src="@{/vendor/datatables/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/vendor/datatables/dataTables.bootstrap4.min.js}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script th:src="@{js/sb-admin-2.min.js}"></script>
-    <script th:src="@{js/demo/datatables-demo.js}"></script>
+    <script th:src="@{/js/sb-admin-2.min.js}"></script>
+    <script th:src="@{/js/demo/datatables-demo.js}"></script>
   </body>
 </html>
